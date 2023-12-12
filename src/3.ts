@@ -7,7 +7,21 @@
   Інтерфейс ISpellCaster повинен включати метод castSpell.
 */
 
-// реалізація класу Wizard
+
+// Определяем интерфейс ICharacter, который содержит свойства name и level, а также методы levelUp() и introduce().
+interface ICharacter {
+  name: string;
+  level: number;
+  levelUp(): void;
+  introduce(phrase: string): void;
+}
+
+// Определяем интерфейс ISpellCaster, который содержит метод castSpell().
+interface ISpellCaster {
+  castSpell(): void;
+}
+
+// Реализация класса Wizard, который имплементирует интерфейсы ICharacter и ISpellCaster.
 class Wizard implements ICharacter, ISpellCaster {
   constructor(public name: string, public level: number) {
     if (this.level < 1) {
@@ -29,11 +43,9 @@ class Wizard implements ICharacter, ISpellCaster {
   }
 }
 
-// тестування класу
+// Создание экземпляра класса Wizard для тестирования функциональности
 const wizard = new Wizard('Merlin', 15);
 
-wizard.introduce('I am the mighty wizard');
-wizard.castSpell();
-wizard.levelUp();  // Level up! New level is 16
-
-export {};
+wizard.introduce('I am the mighty wizard'); // Вывод: "I am the mighty wizard, Merlin"
+wizard.castSpell(); // Вывод: "Casting a spell, behold my power!"
+wizard.levelUp(); // Вывод: "Level up! New level is 16"
