@@ -27,9 +27,9 @@ class Employee {
 
 // Класс Manager наследует функциональность класса Employee.
 class Manager extends Employee {
-  // Метод getCount() добавляет 10000 к заработной плате менеджера.
+  // Метод getCount() добавляет 10 000 к заработной плате менеджера.
   getCount(): number {
-    return this.salary + 10000;
+    return this.salary * 10000;
   }
 
   // Конструктор класса Manager принимает имя, отделение и заработную плату менеджера.
