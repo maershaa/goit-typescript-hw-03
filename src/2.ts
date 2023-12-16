@@ -27,19 +27,8 @@ class Employee {
 
 // Класс Manager наследует функциональность класса Employee.
 class Manager extends Employee {
-  // Метод getCount() добавляет 10 000 к заработной плате менеджера.
-  getCount(): number {
-    return this.salary * 10000;
-  }
-
-  // Конструктор класса Manager принимает имя, отделение и заработную плату менеджера.
   constructor(name: string, department: string, salary: number) {
-    super(name, department, salary); // Вызываем конструктор суперкласса с переданными значениями
-
-    // Используем метод getCount() для корректного вычисления заработной платы менеджера.
-    const newSalary = this.getCount();
-    // Передаем скорректированную заработную плату в конструктор суперкласса.
-    super(name, department, newSalary);
+    super(name, department, salary + 10000); 
   }
 }
 
@@ -49,4 +38,7 @@ console.log(manager.getEmployeeDetails()); // Вывод: Name: John Doe, Depart
 
 // Экспортируем классы, чтобы они были доступны извне.
 export {};
+
+
+
 
